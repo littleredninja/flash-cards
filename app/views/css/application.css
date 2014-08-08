@@ -1,0 +1,70 @@
+* {
+	/*color: blue;*/
+}
+
+body {
+	background: black;
+}
+
+.container {
+	width: 100%;
+	padding-top: 40px;
+	height: 500px;
+	background: black;
+}
+
+.content {
+	width: 600px;
+	height: 500px;
+	background: -webkit-linear-gradient(gray, #829ba8); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(gray, #829ba8); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(gray, #829ba8); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(gray, #829ba8); /* Standard syntax */
+	/*position: relative;*/
+	margin: 0 auto;
+	border-top-right-radius: 4%;
+	border-top-left-radius: 4%;
+	border-bottom-right-radius: 4%;
+	border-bottom-left-radius: 4%;
+}
+
+img {
+	width: 100%;
+	/*position: relative;*/
+	margin: 0 auto;
+	border-top-right-radius: 4%;
+	border-top-left-radius: 4%;
+}
+
+p {
+	text-align:center;
+	width: 85%;
+}
+
+#signin {
+	padding-left: 30px;
+}
+
+a {
+	font-weight: bold;
+	font-size: 1.5em;
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 4px;
+}
+
+a:link {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #666;
+	text-decoration: none;
+	border: 2px solid #666;
+}
+
+#quote {
+	position: relative;
+	margin: 0 auto;
+}

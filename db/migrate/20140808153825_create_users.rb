@@ -6,8 +6,12 @@ class CreateUsers < ActiveRecord::Migration
   		t.string :password
 
   		t.timestamps
+<<<<<<< HEAD
   	end
 
+=======
+    end
+>>>>>>> 713215bd853fa2d8187fa571fb1a214b036a2a5d
   end
   
 end

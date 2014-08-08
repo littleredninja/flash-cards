@@ -1,0 +1,18 @@
+<div class="container">
+  <a href="/contacts/<%= @contact.id %>/edit">Edit contact</a>
+  <ul>
+    <li><%= @contact.name %></li>
+    <li><%= @contact.email %></li>
+  </ul>
+
+  Addresses:
+  <% @contact.addresses.each do |address| %>
+    <ul>
+      <li><a href="/contacts/<%= @contact.id %>/addresses/<%= address.id %>/edit"><%= address.street %></a></li>
+      <li><%= address.city %></li>
+      <li><%= address.state %></li>
+      <li><%= address.zip %></li>
+    </ul>
+  <% end %>
+  <a href="/contacts/<%= @contact.id %>/addresses/new">New Address</a>
+</div>

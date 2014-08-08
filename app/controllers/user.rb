@@ -9,7 +9,6 @@ end
 post '/user/new' do
   user = User.create(params[:user])
   session[:user_id] = user.id
-  Post.create(user: user)
   redirect to ('/user/home')
 end
 

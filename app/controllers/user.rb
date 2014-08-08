@@ -26,3 +26,8 @@ get '/user/home' do
   @user = User.find(session[:user_id])
   erb :"user/home"
 end
+
+get '/user/logout' do
+  session[:user_id] = nil
+  erb :logout
+end

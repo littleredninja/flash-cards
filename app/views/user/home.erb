@@ -1,5 +1,19 @@
-<h3>Welcome back, <%= @user.name %>!</h3>
+<h3>Welcome back, <%= @user.name.capitalize %>!</h3>
 
 <% "user_logout/_form.erb" %>
 
 <h4>Would you like to take a new quiz?</h4>
+
+<p>Here are the available decks:</p>
+
+<% @decks.each do |deck| %>
+	<form action="/deck/start" method="GET">
+	  <input type="hidden" name="id" value="<%= deck.id %>"> <!-- super hacky solution TallBass and I came up with to get the ID into the link -->
+	  <h3><%= deck.name %></h3>
+	  <input type="submit" value="Take this quiz!"/>
+	</form>
+<% end %>
+
+<form action="/user/logout" method="GET">
+  <input type="submit" value="Log out">
+</form>

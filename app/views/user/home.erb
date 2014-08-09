@@ -12,6 +12,7 @@
 	</form>
 <% end %>
 
-<form action="/user/logout" method="GET">
+<form action="/user/logout" method="POST">
+	<input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Log out">
 </form>

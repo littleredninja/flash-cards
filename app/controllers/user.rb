@@ -27,7 +27,7 @@ get '/user/home' do
   erb :"user/home"
 end
 
-get '/user/logout' do
+delete '/user/logout' do
   session[:user_id] = nil
   erb :logout
 end

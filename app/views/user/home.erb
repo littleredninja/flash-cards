@@ -5,7 +5,7 @@
 <p>Here are the available decks:</p>
 
 <% @decks.each do |deck| %>
-	<form action="/deck/start" method="GET">
+	<form action="/deck/<%=deck.id%>" method="GET">
 	  <input type="hidden" name="id" value="<%= deck.id %>"> <!-- super hacky solution TallBass and I came up with to get the ID into the link -->
 	  <h3><%= deck.name %></h3>
 	  <input type="submit" value="Take this quiz!"/>

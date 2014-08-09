@@ -24,6 +24,7 @@ end
 
 get '/user/home' do
   @user = User.find(session[:user_id])
+  @decks = Deck.all
   erb :"user/home"
 end
 

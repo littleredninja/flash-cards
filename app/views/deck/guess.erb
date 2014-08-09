@@ -4,7 +4,6 @@
   <% end %>
   <p><%= @card.question %></p>
   <form action="/decks/<%= @deck.id %>" method="post">
-    <input type="hidden" name="card_id" value="<%= @card.id %>">
     <input type="text" name="user_guess" placeholder="Guess">
     <input type="submit" value="Submit">
   </form>

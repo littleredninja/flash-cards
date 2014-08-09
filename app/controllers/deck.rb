@@ -1,6 +1,3 @@
-get '/deck/start' do
-	erb :"deck/start"
-end
 
 get '/decks/:id' do
   redirect to ('/') unless current_user
@@ -23,7 +20,7 @@ post '/decks/:id' do
 
   guess = Guess.create(round: current_round, card: @card)
 
-  guess.correct = true if @user_guess == @card.answer
+  guess.correct = true if user_guess == @card.answer
   if guess.correct
     @message = "Correct"
     next_card = card.id + 1
@@ -31,7 +28,7 @@ post '/decks/:id' do
   else
     @message = "Incorrect"
   end
-  erb :"decks/:guess"
+  erb :"decks/guess"
 
 
 

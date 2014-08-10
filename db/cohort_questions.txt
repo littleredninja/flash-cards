@@ -1,0 +1,5 @@
+stephanie = Card.create(question: "Is Stephanie terrifying?", answer: "Kinda", deck_id: 2)
+tallbass = Card.create(question: "What is TallBass' real name?", answer: "He doesn't have one", deck_id: 2)
+steve = Card.create(question: "Why didn't Steve find the error faster?", answer: "Michael slowed him down", deck_id: 2)
+keslin = Card.create(question: "What was Keslin's former job?", answer: "Teacher", deck_id: 2)
+edgar = Card.create(question: "Why Edgar?", answer: "God has a sense of humor", deck_id: 2)

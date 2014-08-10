@@ -30,5 +30,5 @@ end
 
 get '/user/logout' do
   session[:user_id] = nil
-  erb :logout
+  erb :"user/logout"
 end

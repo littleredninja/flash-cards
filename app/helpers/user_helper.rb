@@ -11,4 +11,20 @@ helpers do
     possible_answers.sample
   end
 
+  def calculate_correct_percentage
+    correct = Guess.where(round_id: session[:round_id], correct: true)
+    all_answers = Guess.where(round_id: session[:round_id])
+    p "Guess length"
+    p Guess.all.length
+    percentage = (correct.length.to_f)/(all_answers.length.to_f)
+    answer = (percentage * 100).to_i # or .round(2), can't decide
+    "#{answer}% correct"
+  end
+
+  def refresh_cards(array)
+    array.each do |card|
+      card.update(answered: false)
+    end
+  end
+
 end

@@ -7,8 +7,18 @@ end
 
 get '/deck/question' do
   @card = next_card(session[:deck_id])
-  @card.update(answered: true)
-  erb :"/deck/guess"
+  if @card == nil
+    redirect '/deck/stats'
+  else
+    @card.update(answered: true)
+    erb :"/deck/guess"
+  end
+end
+
+get '/deck/stats' do
+  @correct_percentage = calculate_correct_percentage
+  @user = User.find(session[:user_id])
+  erb :"/deck/stats"
 end
 
 get '/deck/:deck_id' do
@@ -16,6 +26,8 @@ get '/deck/:deck_id' do
   @round = Round.create(user_id: session[:user_id], deck: @deck)
   session[:round_id] = @round.id
   session[:deck_id] = @deck.id
+  @cards = Card.where(deck_id: session[:deck_id])
+  refresh_cards(@cards)
   @card = next_card(params[:deck_id])
   @card.update(answered: true)
   erb :"/deck/guess"
@@ -25,10 +37,10 @@ post '/deck/:deck_id' do
   @card = Card.find(params[:card_id])
   @user_guess = params[:user_guess]
   if @user_guess == @card.answer
-    Guess.new(round_id: session[:round_id], card_id: @card.id, correct: true)
+    Guess.create(round_id: session[:round_id], card_id: @card.id, correct: true)
       session[:message] = "CORRECT!"
   else
-    Guess.new(round_id: session[:round_id], card_id: @card.id)
+    Guess.create(round_id: session[:round_id], card_id: @card.id)
       session[:message] = "INCORRECT, IDIOT!"
   end
   session[:card_id] = @card.id

@@ -24,10 +24,11 @@ end
 
 get '/user/home' do
   @user = User.find(session[:user_id])
+  @decks = Deck.all
   erb :"user/home"
 end
 
 delete '/user/logout' do
   session[:user_id] = nil
-  erb :logout
+  erb :"user/logout"
 end

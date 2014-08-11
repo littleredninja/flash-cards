@@ -1,12 +1,10 @@
 <div class="container">
-  <% if @message %>
-    <%= @message %>
-  <% end %>
+
   <p><%= @card.question %></p>
-  <form action="/decks/<%= @deck.id %>" method="post">
+  <form action="/deck/<%= session[:deck_id] %>" method="POST">
     <input type="hidden" name="card_id" value="<%= @card.id %>">
     <input type="text" name="user_guess" placeholder="Guess">
     <input type="submit" value="Submit">
   </form>
-  <a href="#">Next</a>
+
 </div>
